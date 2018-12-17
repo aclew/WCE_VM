@@ -1,0 +1,40 @@
+% Default configuration file for WCE count estimator.
+% 
+conf = struct();
+
+conf.name = 'Default WCE configuration';
+
+% Select syllable envelope estimator
+% Options:
+% 'LSTMseg', a temporal neural network estimator
+% 'thetaSeg', according to Rasanen, Doyle & Frank (2018)
+% 'WN', according to Wang & Narayanan (2007)
+% 'duration-bl' , simply uses duration 
+
+conf.syl_method = 'LSTMseg';  
+
+% Extra model specification passed to syllabifier. Needs to be placed in
+% .../LSTMSeg/trained_models/
+conf.syl_modelname = 'BLSTM_fourlang_60_60_augmented_dropout_v2.h5'; 
+
+conf.verbose = 1; % verbose mode?
+
+% Store intermediate-level features hard drive for faster repeated processing? 
+% Warning: this feature may consume a large amount of disk space over time!
+conf.store_features = 0; 
+
+conf.spectral_subtraction = 1; % Use spectral subtraction in syllabification?
+
+% Select features
+% Full list of features:
+% 'duration'                log duration of the utterance        
+% 'sonority_total_energy'   sum of sonority envelope
+% 'sonority_mean_energy'    mean of sonority envelope
+% 'sonority_sd_energy'      SD of sonority envelope
+% 'signal_mean_energy'      mean energy of the acoustic waveform
+% 'signal_total_energy'     total energy of the acoustic waveform
+
+conf.features = {'duration','sonority_mean_energy','sonority_SD_energy'}; %,'sonority_mean_energy','sonority_total_energy','sonority_SD_energy','signal_mean_energy','signal_total_energy'};
+% Syllable detection thresholds to evaluate during WCE estimator training.
+
+conf.syl_thrvals = [0.0001:0.0001:0.0009 0.001:0.001:0.01 0.012:0.02:0.5 0.6:0.1:1];

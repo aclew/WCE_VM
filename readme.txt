@@ -14,29 +14,6 @@ using language-independent syllabification of speech
 
 
 ####################################
-Installation to DiViMe (these steps should be in the Vagrantfile)
-
-
-# Get WCE from GitHub
-
-cd ~/repos/
-git clone https://github.com/aclew/WCE_VM
-
-# Install WCE dependencies
-
- ~/anaconda/bin/pip install keras
- ~/anaconda/bin/pip install -U tensorflow
-
-# Move WCE operating scripts to launcher
-
-cp ~/repos/WCE_VM/aux_VM/WCE_preprocess.sh ~/launcher/
-cp ~/repos/WCE_VM/aux_VM/WCE_fulltrain.sh ~/launcher/
-cp ~/repos/WCE_VM/aux_VM/WCE_estimate.sh ~/launcher/
-cp ~/repos/WCE_VM/aux_VM/WCE_LOSO_eval.sh ~/launcher/
-
-
-
-####################################
 How to operate WCE on VM
 
 To prepare ACLEW-format data for training and cross-validation, place your .wav files into data/ folder of the VM 
@@ -44,7 +21,7 @@ To prepare ACLEW-format data for training and cross-validation, place your .wav 
 
     1) Call
 
-    /launcher/WCE_preprocess.sh to carry out SAD on the data, and to derive the SAD-segment specific word counts.
+    /utils/WCE_preprocess.sh to carry out SAD on the data, and to derive the SAD-segment specific word counts.
 
     and then either
 

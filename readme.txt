@@ -29,10 +29,11 @@ git clone https://github.com/aclew/WCE_VM
 
 # Move WCE operating scripts to launcher
 
-cp ~/repos/WCE_VM/WCE_preprocess.sh ~/launcher/
-cp ~/repos/WCE_VM/WCE_fulltrain.sh ~/launcher/
-cp ~/repos/WCE_VM/WCE_estimate.sh ~/launcher/
-cp ~/repos/WCE_VM/WCE_LOSO_eval.sh ~/launcher/
+cp ~/repos/WCE_VM/aux_VM/WCE_preprocess.sh ~/launcher/
+cp ~/repos/WCE_VM/aux_VM/WCE_fulltrain.sh ~/launcher/
+cp ~/repos/WCE_VM/aux_VM/WCE_estimate.sh ~/launcher/
+cp ~/repos/WCE_VM/aux_VM/WCE_LOSO_eval.sh ~/launcher/
+
 
 
 ####################################

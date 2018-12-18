@@ -93,9 +93,9 @@ where inputs.txt and mymodelfile.mat are as in training, and output.csv is the l
 
 DEMO scripts:
 
-./run_WCEtrain.sh /usr/local/MATLAB/MATLAB_Runtime/v91/ demofiles.txt democounts.txt mymodel.mat configs/config_default.txt
+./run_WCEtrain.sh /usr/local/MATLAB/MATLAB_Runtime/v93/ demofiles.txt democounts.txt models/mymodel.mat configs/config_default.txt
 
-./run_WCEestimate.sh /usr/local/MATLAB/MATLAB_Runtime/v91/ demofiles.txt mymodel.mat output.csv
+./run_WCEestimate.sh /usr/local/MATLAB/MATLAB_Runtime/v93/ demofiles.txt models/mymodel.mat outputs/output.csv
 
 
 ####################################

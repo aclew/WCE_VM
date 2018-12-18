@@ -66,9 +66,11 @@ curdir=$(pwd);cd /vagrant/${EAF_FOLDER};cp *enriched.txt /vagrant/data/WCE_VM_TE
 
 # 4) Call SADsplit to create annotation file for each SAD output segment
 
+echo "Creating .wav files and annotation files for each SAD segment..."
+
 ~/repos/WCE_VM/aux_VM/SADsplit.sh /vagrant/data/WCE_VM_TEMP/ENRICH/ /vagrant/data/WCE_VM_TEMP/RTTM/ $WAV_FOLDER
 
-
+echo " "
 echo "WCE data preprocessing complete. Use WCE_LOSO_eval.sh to run leave-one-subject-out validation
 of the system, or WCE_fulltrain.sh to adapt the WCE for all the data."
 

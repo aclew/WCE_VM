@@ -12,8 +12,8 @@ curr_id = ('%s' % sys.argv[2])
 #files_dir = '/Users/seshads1/Documents/code/ACLEW/aclew_git_divime_2/DiViMe/data/tmp_out/'
 #curr_id = 'BER_0396'
 
-print(files_dir)
-print(curr_id)
+#print(files_dir)
+#print(curr_id)
 #enrich_file = '/Users/rasaneno/Documents/koodit/dev_python/VM/rttm_and_enrich_merger/0396_enriched.txt';
 #rttm_file =  '/Users/rasaneno/Documents/koodit/dev_python/VM/rttm_and_enrich_merger/tocombo_sad_BER_0396_005220_005340.rttm';
 

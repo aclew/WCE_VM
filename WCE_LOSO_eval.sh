@@ -31,7 +31,8 @@ done
 
 c=0
 for en_path in ${DIROP_FOLDER}*_totWords.txt; do
-  python $SCRIPT_DIR/get_train_LOO_inputs.py ${c} ${DIROP_FOLDER} ${ids[@]}
+  #python $SCRIPT_DIR/get_train_LOO_inputs.py ${c} ${DIROP_FOLDER} ${ids[@]}
+  python ~/repos/WCE_VM/aux_VM/get_train_LOO_inputs.py ${c} ${DIROP_FOLDER} ${ids[@]}
   ~/repos/WCE_VM/run_WCEtrain.sh ${MATPATH} ${FILES_TRAIN} ${TRAIN_COUNTS} ${MODEL} ${CONFIG} ${ALPHA}  
   ~/repos/WCE_VM/run_WCEestimate.sh ${MATPATH} ${FILES_TEST} ${MODEL} "${DIROP_FOLDER}/OUTPUTS_COUNTS_${c}_ESTIMATE.csv"
   python ~/repos/WCE_VM/evaluate_WCE.py "${DIROP_FOLDER}/OUTPUTS_COUNTS_${c}_ESTIMATE.csv" ${TEST_COUNTS} ${DIROP_FOLDER}"/OUTPUTS_EVAL_"${c}".txt" # code to run eval must bre filled

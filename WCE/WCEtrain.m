@@ -191,6 +191,8 @@ est_counts = X*M;
 
 % Error on train
 
+est_counts(est_counts < 0) = 0;
+
 
 RMSE_train = sqrt(mean(((est_counts(train_counts > 0)-train_counts(train_counts > 0))./train_counts(train_counts > 0)).^2))*100;
 

@@ -103,8 +103,10 @@ X_test = [nuclei_est_test X_other];
 
 counts_estimated = X_test*WCEmodel.M;
 
+
 counts_estimated(isinf(counts_estimated)) = 0;
 counts_estimated(isnan(counts_estimated)) = 0;
+counts_estimated(counts_estimated < 0) = 0;
 
 % Write to output file
 

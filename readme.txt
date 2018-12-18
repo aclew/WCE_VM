@@ -13,20 +13,54 @@ Rasanen, O., Seshadri, S., Karadayi, J., Riebling, E., Bunce, J., Cristia, A., M
 using language-independent syllabification of speech 
 
 
+####################################
+Installation to DiViMe (these steps should be in the Vagrantfile)
 
 
+# Get WCE from GitHub
+
+cd ~/repos/
+git clone https://github.com/aclew/WCE_VM
+
+# Install WCE dependencies
+
+ ~/anaconda/bin/pip install keras
+ ~/anaconda/bin/pip install -U tensorflow
+
+# Move WCE operating scripts to launcher
+
+cp ~/repos/WCE_VM/WCE_preprocess.sh ~/launcher/
+cp ~/repos/WCE_VM/WCE_fulltrain.sh ~/launcher/
+cp ~/repos/WCE_VM/WCE_estimate.sh ~/launcher/
+cp ~/repos/WCE_VM/WCE_LOSO_eval.sh ~/launcher/
 
 
 ####################################
 How to operate WCE on VM
 
 To prepare ACLEW-format data for training and cross-validation, place your .wav files into data/ folder of the VM 
-(e.g., data/wavs/), and then the daylong annotation .eaf files to another folder (e.g., data/eafs/). Then call
+(e.g., data/wavs/), and then the daylong annotation .eaf files to another folder (e.g., data/eafs/). Then 
 
-/launcher/WCE_preprocess.sh to carry out SAD on the data, and the 
+    1) Call
 
+    /launcher/WCE_preprocess.sh to carry out SAD on the data, and to derive the SAD-segment specific word counts.
 
+    and then either
 
+    2a)
+
+    /launcher/WCE_LOSO_eval.sh to carry out leave-one-subject-out cross-validation on the provided data (depending on the
+        dataset size, this might take some time)
+
+    or 
+    2b)
+
+    /launcher/WCE_fulltrain.sh to first adapt WCE module to all provided and prepared data
+
+    and then
+
+    /launcher/WCE_estimate.sh <filenames.txt> to apply the adapted model to get word counts on new signals, where  
+        <filenames.txt> is an ASCII .txt file with one signal path per row.
 
 
 You can also call the WCE training and testing functions directly 
@@ -55,6 +89,7 @@ where inputs.txt and mymodelfile.mat are as in training, and output.csv is the l
 
 
 ####################################
+
 DEMO scripts:
 
 ./run_WCEtrain.sh /usr/local/MATLAB/MATLAB_Runtime/v91/ demofiles.txt democounts.txt mymodel.mat configs/config_default.txt

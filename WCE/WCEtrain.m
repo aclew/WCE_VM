@@ -174,8 +174,6 @@ for k = 1:length(thrvals)
     corvals(k) = corr(train_counts,nuclei_est(:,k));
 end
 
-max(corvals)
-
 [~,i] = max(corvals);
 
 best_thr = thrvals(i);

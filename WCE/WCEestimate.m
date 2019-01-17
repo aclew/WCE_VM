@@ -90,6 +90,8 @@ conf = WCEmodel.conf;
 
 syl_envelope_test = getSyllables(conf.syl_method,files_test,conf);
 
+figure(3);clf;plot(syl_envelope_test{1});drawnow;
+
 
 nuclei_est_test = zeros(length(syl_envelope_test),1);
 for k = 1:length(syl_envelope_test)

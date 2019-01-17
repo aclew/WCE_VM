@@ -98,6 +98,10 @@ for wloc = 1:ws:size(Fall_test,1)-wl+1
    cc = cc+1;     
 end
 
+X_test_in(isinf(X_test_in)) = 0;
+X_test_in(isnan(X_test_in)) = 0;
+
+
 a = whos('X_test_in');
 if(a.bytes-2e9 > 0) % Need to split into multiple files?
     chunks = ceil(a.bytes/2e9);

@@ -14,29 +14,6 @@ using language-independent syllabification of speech
 
 
 ####################################
-Installation to DiViMe (these steps should be in the Vagrantfile)
-
-
-# Get WCE from GitHub
-
-cd ~/repos/
-git clone https://github.com/aclew/WCE_VM
-
-# Install WCE dependencies
-
- ~/anaconda/bin/pip install keras
- ~/anaconda/bin/pip install -U tensorflow
-
-# Move WCE operating scripts to launcher
-
-cp ~/repos/WCE_VM/aux_VM/WCE_preprocess.sh ~/launcher/
-cp ~/repos/WCE_VM/aux_VM/WCE_fulltrain.sh ~/launcher/
-cp ~/repos/WCE_VM/aux_VM/WCE_estimate.sh ~/launcher/
-cp ~/repos/WCE_VM/aux_VM/WCE_LOSO_eval.sh ~/launcher/
-
-
-
-####################################
 How to operate WCE on VM
 
 To prepare ACLEW-format data for training and cross-validation, place your .wav files into data/ folder of the VM 
@@ -44,27 +21,27 @@ To prepare ACLEW-format data for training and cross-validation, place your .wav 
 
     1) Call
 
-    /launcher/WCE_preprocess.sh to carry out SAD on the data, and to derive the SAD-segment specific word counts.
+    /utils/WCE_preprocess.sh to carry out SAD on the data, and to derive the SAD-segment specific word counts.
 
     and then either
 
     2a)
 
-    /launcher/WCE_LOSO_eval.sh to carry out leave-one-subject-out cross-validation on the provided data (depending on the
+    /launcher/evalWCE_LOSO.sh to carry out leave-one-subject-out cross-validation on the provided data (depending on the
         dataset size, this might take some time)
 
     or 
     2b)
 
-    /launcher/WCE_fulltrain.sh to first adapt WCE module to all provided and prepared data
+    /launcher/fulltrainWCE.sh to first adapt WCE module to all provided and prepared data
 
     and then
 
-    /launcher/WCE_estimate.sh <filenames.txt> to apply the adapted model to get word counts on new signals, where  
+    /launcher/estimateWCE.sh <filenames.txt> to apply the adapted model to get word counts on new signals, where
         <filenames.txt> is an ASCII .txt file with one signal path per row.
 
 
-You can also call the WCE training and testing functions directly 
+You can also call (from the ~/repos/WCE_VM folder) the WCE training and testing functions directly
 
 ./run_WCEtrain.sh /usr/local/MATLAB/MATLAB_Runtime/v91/ <inputs.txt> <inputcounts.txt> <mymodelfile.mat> <configfile.txt>
 

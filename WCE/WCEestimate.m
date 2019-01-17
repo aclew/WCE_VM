@@ -53,10 +53,10 @@ end
 
 if nargin <2
     modelfile = [maindir '/models/model_default.mat'];
-    warning('WCE model not specified. Using default model at %s.',modelfile)
+    fprintf('WCE model not specified. Using default model at %s.\n',modelfile)
 elseif(isempty(modelfile))
     modelfile = [maindir '/models/model_default.mat'];
-    warning('WCE model not specified. Using default model at %s.',modelfile)
+    fprintf('WCE model not specified. Using default model at %s.\n',modelfile)
 else
     modelfile = fullfile(modelfile);
 end    
@@ -86,12 +86,7 @@ load(modelfile);
 
 conf = WCEmodel.conf;
 
-
-
 syl_envelope_test = getSyllables(conf.syl_method,files_test,conf);
-
-figure(3);clf;plot(syl_envelope_test{1});drawnow;
-
 
 nuclei_est_test = zeros(length(syl_envelope_test),1);
 for k = 1:length(syl_envelope_test)
@@ -102,6 +97,9 @@ end
 X_other = getWCEfeatures(files_test,conf,syl_envelope_test);
 
 X_test = [nuclei_est_test X_other];
+
+X_test(isnan(X_test)) = 0;
+X_test(isinf(X_test)) = 0;
 
 counts_estimated = X_test*WCEmodel.M;
 

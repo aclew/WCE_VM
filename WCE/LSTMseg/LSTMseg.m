@@ -138,13 +138,8 @@ end
 
 D = importdata([curdir '/data_out.csv']);
 
-
-%D = filter(ones(3,1)./3,1,D');
-%D = D';
-
 % Do overlap and add reconstruction of the envelopes
 
-%ww = hamming(wl)+0.01; % use window to emphasize certain frames
 ww = ones(wl,1);
 
 envelope = cell(length(filenames),1);

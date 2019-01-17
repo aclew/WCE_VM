@@ -8,16 +8,16 @@ NOTE: This is a very preliminary release that has not been extensively tested fo
 
 If you use this code or its derivations in a publication or other software, remember cite the following document:
 
-Rasanen, O., Seshadri, S., Karadayi, J., Riebling, E., Bunce, J., Cristia, A., Metze, F., Casillas, M., Rosemberg, C., Bergelson, E., 
-& Soderstrom, M. (submitted): Automatic word count estimation from daylong child-centered recordings in various language environments 
-using language-independent syllabification of speech 
+Rasanen, O., Seshadri, S., Karadayi, J., Riebling, E., Bunce, J., Cristia, A., Metze, F., Casillas, M., Rosemberg, C., Bergelson, E.,
+& Soderstrom, M. (submitted): Automatic word count estimation from daylong child-centered recordings in various language environments
+using language-independent syllabification of speech
 
 
 ####################################
 How to operate WCE on VM
 
-To prepare ACLEW-format data for training and cross-validation, place your .wav files into data/ folder of the VM 
-(e.g., data/wavs/), and then the daylong annotation .eaf files to another folder (e.g., data/eafs/). Then 
+To prepare ACLEW-format data for training and cross-validation, place your .wav files into data/ folder of the VM
+(e.g., data/wavs/), and then the daylong annotation .eaf files to another folder (e.g., data/eafs/). Then
 
     1) Call
 
@@ -30,7 +30,7 @@ To prepare ACLEW-format data for training and cross-validation, place your .wav 
     /launcher/evalWCE_LOSO.sh to carry out leave-one-subject-out cross-validation on the provided data (depending on the
         dataset size, this might take some time)
 
-    or 
+    or
     2b)
 
     /launcher/fulltrainWCE.sh to first adapt WCE module to all provided and prepared data
@@ -43,7 +43,7 @@ To prepare ACLEW-format data for training and cross-validation, place your .wav 
 
 You can also call (from the ~/repos/WCE_VM folder) the WCE training and testing functions directly
 
-./run_WCEtrain.sh /usr/local/MATLAB/MATLAB_Runtime/v91/ <inputs.txt> <inputcounts.txt> <mymodelfile.mat> <configfile.txt>
+./run_WCEtrain.sh /usr/local/MATLAB/MATLAB_Runtime/v93/ <inputs.txt> <inputcounts.txt> <mymodelfile.mat> <configfile.txt>
 
 where
 
@@ -61,7 +61,7 @@ where
 
 and
 
-./run_WCEestimate.sh /usr/local/MATLAB/MATLAB_Runtime/v91/ <inputs.txt> <mymodelfile.mat> <output.csv>
+./run_WCEestimate.sh /usr/local/MATLAB/MATLAB_Runtime/v93/ <inputs.txt> <mymodelfile.mat> <output.csv>
 
 where inputs.txt and mymodelfile.mat are as in training, and output.csv is the location where estimated word counts are stored.
 
@@ -78,8 +78,8 @@ DEMO scripts:
 ####################################
 Other notes:
 
-1) The current software uses (and includes) Voicebox toolbox for MATLAB by Mike Brooks, 
-as distributed under GNU Public License. 
+1) The current software uses (and includes) Voicebox toolbox for MATLAB by Mike Brooks,
+as distributed under GNU Public License.
 
 No modifications to the original voicebox have been made.
 

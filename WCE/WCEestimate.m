@@ -36,7 +36,7 @@ function counts_estimated = WCEestimate(files_test,modelfile,outputfile)
 if(isdeployed)
     %maindir = fullfile(pwd,'/');
     
-    maindir = '~/repos/WCE_Beta/';
+    maindir = '~/repos/WCE_VM/';
     
 else
     maindir = fileparts(which('WCEtrain.m'));
@@ -52,10 +52,10 @@ else
 end
 
 if nargin <2
-    modelfile = [maindir '/WCE/models/model_default.mat'];
+    modelfile = [maindir '/models/model_default.mat'];
     warning('WCE model not specified. Using default model at %s.',modelfile)
 elseif(isempty(modelfile))
-    modelfile = [maindir '/WCE/models/model_default.mat'];
+    modelfile = [maindir '/models/model_default.mat'];
     warning('WCE model not specified. Using default model at %s.',modelfile)
 else
     modelfile = fullfile(modelfile);

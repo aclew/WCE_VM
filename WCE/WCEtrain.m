@@ -37,7 +37,7 @@ function WCEtrain(files_train,train_counts,modelfile,configfile,alpha)
 
 if(isdeployed)
     %maindir = fullfile(pwd,'/');
-    maindir = '~/repos/WCE_Beta/';
+    maindir = '~/repos/WCE_VM/';
 else
     maindir = fileparts(which('WCEtrain.m'));
 end
@@ -56,9 +56,11 @@ else
     configfile = fullfile(configfile);
 end
 if nargin <3
-    modelfile = [maindir '/models/model_default.mat'];
+    modelfile = [maindir '/models/model_adapted.mat'];
+    fprintf('Model output file not defined. Saving to default models/model_adapted.mat\n');
 elseif(isempty(modelfile))
-    modelfile = [maindir '/models/model_default.mat'];
+    modelfile = [maindir '/models/model_adapted.mat'];
+    fprintf('Model output file not defined. Saving to default models/model_adapted.mat\n');
 else
     modelfile = fullfile(modelfile);
 end

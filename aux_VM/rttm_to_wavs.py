@@ -50,7 +50,7 @@ for rttm_file in fileList:
             SAD_onsets_tmp = float(row[3])
             SAD_offsets = np.append(SAD_offsets,float(row[4])+float(row[3]))
 
-            short_wav_file = outputdir + '/' + filename[0:-5]+ '_' + str(int(float(row[3])*1000)).zfill(8) + '.wav'
+            short_wav_file = outputdir + '/' + filename[0:-5]+ '_' + str(int(float(row[3])*1000)).zfill(8) + '-' + str(int(float(row[4])*1000)).zfill(8) + '.wav'
             SAD_onsets_tmp = int(np.floor(float(row[3])*rate))+1
             SAD_offsets_tmp = int(np.floor(float(row[4])*rate+float(row[3])*rate))-1
             short_wav = mainWav[SAD_onsets_tmp:SAD_offsets_tmp]

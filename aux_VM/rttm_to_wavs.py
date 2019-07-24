@@ -21,10 +21,14 @@ fileList = sorted(glob.glob(outputdir + '/' + sadname + '*.wav'))
 for f in fileList:
     os.remove(f)
 
+fileList_wav = sorted(glob.glob(rttm_folder + '*.wav'))
+
+
+
 
 fileList = sorted(glob.glob(rttm_folder + sadname + '*.rttm'))
 
-
+x = 0
 for rttm_file in fileList:
     path, filename = os.path.split(rttm_file)
 
@@ -32,14 +36,14 @@ for rttm_file in fileList:
     SAD_offsets = np.array([])
 
     tmp = filename.rfind('_')
-    wavfile = path + '/' + filename[tmp+1:-5] + '.wav'
+    #wavfile = path + '/' + filename[tmp+1:-5] + '.wav' # Bug is here.
+    wavfile = fileList_wav[x]
 
     if not os.path.exists(outputdir):
         os.mkdir(outputdir)
 
     [rate,mainWav] = wav.read(wavfile)
     if(mainWav.ndim > 1):
-        #mainWav = np.mean(mainWav, axis=1)
         mainWav = mainWav[:,0]
 
     with open(rttm_file, 'rt') as f:
@@ -55,3 +59,5 @@ for rttm_file in fileList:
             SAD_offsets_tmp = int(np.floor(float(row[4])*rate+float(row[3])*rate))-1
             short_wav = mainWav[SAD_onsets_tmp:SAD_offsets_tmp]
             wav.write(short_wav_file,rate,short_wav)
+
+    x = x+1

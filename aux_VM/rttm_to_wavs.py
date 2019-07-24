@@ -9,7 +9,7 @@ rttm_folder = ('%s' % sys.argv[1])
 if(len(sys.argv) == 3):
     sadname = ('%s' % sys.argv[2])
 else:
-    sadname = 'opensmile'
+    sadname = 'opensmileSad'
 
 
 if(len(sys.argv) == 4):
@@ -21,7 +21,7 @@ fileList = sorted(glob.glob(outputdir + '/' + sadname + '*.wav'))
 for f in fileList:
     os.remove(f)
 
-fileList_wav = sorted(glob.glob(rttm_folder + '*.wav'))
+#fileList_wav = sorted(glob.glob(rttm_folder + '*.wav'))
 
 
 
@@ -35,9 +35,12 @@ for rttm_file in fileList:
     SAD_onsets = np.array([])
     SAD_offsets = np.array([])
 
-    tmp = filename.rfind('_')
+    #tmp = filename.rfind('_')
+    #tmp =
+    tmp = filename.rfind(sadname)
     #wavfile = path + '/' + filename[tmp+1:-5] + '.wav' # Bug is here.
-    wavfile = fileList_wav[x]
+    wavfile = path + '/' + filename[tmp+len(sadname)+1:-5] + '.wav' # Bug is here.
+    #wavfile = fileList_wav[x]
 
     if not os.path.exists(outputdir):
         os.mkdir(outputdir)

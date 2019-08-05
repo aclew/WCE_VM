@@ -1,4 +1,7 @@
-Note: For a regular MATLAB implementation of the WCE, please see the folder https://github.com/aclew/WCE_VM/tree/master/WCE of this repository. This root folder contains a MATLAB runtime standalone implementation of that algorithm to be used in conjunction with ACLEW DiVIMe virtual machine (https://github.com/srvk/DiViMe/). 
+Note: For a regular MATLAB implementation of the WCE, please see the folder 
+https://github.com/aclew/WCE_VM/tree/master/WCE of this repository. This root 
+folder contains a MATLAB runtime standalone implementation of that algorithm 
+to be used in conjunction with ACLEW DiVIMe virtual machine (https://github.com/srvk/DiViMe/). 
 
 ---------------------------------------
 
